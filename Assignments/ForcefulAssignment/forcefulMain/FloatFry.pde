@@ -7,7 +7,7 @@
 
 
 
-class Chips{
+class FloatFry{
   
   
   
@@ -24,12 +24,24 @@ class Chips{
   
   
   
+  void update(){
+    
+    
+  }
+  
+  void display() {
+    
+    
+  }
   
   
   
   
-  
-  
+   void checkEdges() {
+    
+    
+    
+  }
   
   
   

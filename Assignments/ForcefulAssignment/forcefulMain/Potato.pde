@@ -9,20 +9,20 @@
 
 class Potato {
   
+  //image object for the sprite
   PImage mainPotato;
   //let's get some PVector up in this class!
-  
-  
   PVector location;      //gotta make an object for location so we can do some awesome physics!!!
   PVector  velocity;
   PVector acceleration;
-  //others??
-  float x,y;
+  
+  float mass;
   
   //gotta instantiate the potato objects pvector components
-  Potato() {
+  Potato(float m, float x, float y) {
+    mass = m;
     
-   location = new PVector(random(width), random(height));    //we shall change this up later let us just try stuff out now
+   location = new PVector(mouseX, mouseY);    //we shall change this up later let us just try stuff out now
    
    velocity = new PVector(0,0);
    
@@ -32,6 +32,19 @@ class Potato {
 
   }
   
+  void newtonForce() {
+    
+    
+    
+  }
+  
+  
+  void update(){
+    
+    
+    
+  }
+  
   //display the potato icon
   void display() {
     imageMode(CENTER);
@@ -39,5 +52,5 @@ class Potato {
     
   }
    
-  
+ 
 }
