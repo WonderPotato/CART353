@@ -10,11 +10,18 @@
 class FloatFry{
   
   
+  PImage fries;
   
   
   
-  
-  
+  FloatFry() {
+    
+    fries = loadImage("something.png");
+    imageMode(CENTER);
+    
+    
+    
+  }
   
   
   

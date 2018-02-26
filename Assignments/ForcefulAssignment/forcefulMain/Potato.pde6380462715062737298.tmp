@@ -20,7 +20,7 @@ class Potato {
   
   //gotta instantiate the potato objects pvector components
   Potato() {
-    //mass = m;
+    mass = m;
     
    location = new PVector(mouseX, mouseY);    //we shall change this up later let us just try stuff out now
    
@@ -48,8 +48,8 @@ class Potato {
   //display the potato icon
   void display() {
     imageMode(CENTER);
-    image(mainPotato, 0,0);
-    mainPotato.resize(100,100);
+    image(mainPotato, 120, 120);
+    
   }
    
  

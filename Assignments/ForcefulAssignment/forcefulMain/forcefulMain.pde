@@ -37,7 +37,27 @@ void draw(){
   //background image space 
 background(backgd);
  // image(potatoOrigin, mouseX, mouseY);
+  
+  pushMatrix();
+  
+  translate(mouseX, mouseY);
   potatoOrigin.display();
+  popMatrix();
+  
+  //need location of gas bottom screen
+ // if(potatoOrigin.isInside(gas)){
+ /*  pushMatrix();
+      translate(width/2, height/2);
+   rotate((mouseX/width) *2*PI);
+   potatoOrigin.display();
+   popMatrix();
+    
+ // }
+  //if mouse is near the gas spot, make potatomouse rotate & dragged
+  */
+  
+  
+  
   
 }
 
