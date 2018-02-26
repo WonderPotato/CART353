@@ -15,16 +15,29 @@ class Environment{
   
   //background
   
+//drag / liquid / gaseous state needs different variables for its formula coefficient etc
+
+float x,y,w,h,c;
+
+
   
-  
-  Environment() {
+  Environment(float xEN, float yEN, float wEN, float hEN, float cEN) {
   
   //cool science formula
-  
-  
+  x = xEN;
+  y = yEN;
+  w = wEN;
+  h = hEN;
+  c = cEN;
+    
   }
   
   void display() {
+  
+    noStroke();
+    fill(200, 45, 120);
+    rect(x, y, w, h);
+    
     
   }
   
