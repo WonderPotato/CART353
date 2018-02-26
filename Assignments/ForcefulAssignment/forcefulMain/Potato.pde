@@ -9,7 +9,7 @@
 
 class Potato {
   
-  
+  PImage mainPotato;
   //let's get some PVector up in this class!
   
   
@@ -17,7 +17,7 @@ class Potato {
   PVector  velocity;
   PVector acceleration;
   //others??
-  
+  float x,y;
   
   //gotta instantiate the potato objects pvector components
   Potato() {
@@ -27,52 +27,17 @@ class Potato {
    velocity = new PVector(0,0);
    
    //acceleration?? it's not an object?
-    
-    
+    mainPotato = loadImage("potatoMain.png");
+
+
   }
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  //display the potato icon
+  void display() {
+    imageMode(CENTER);
+    image(mainPotato, mouseX, mouseY, 120, 120);
+    
+  }
+   
   
 }

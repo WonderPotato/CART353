@@ -13,14 +13,20 @@
 
 class Environment{
   
+  //background
   
+  
+  
+  Environment() {
   
   //cool science formula
   
   
+  }
   
-  
-  
+  void display() {
+    
+  }
   
   
   
