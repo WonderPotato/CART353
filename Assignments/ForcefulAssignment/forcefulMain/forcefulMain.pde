@@ -25,10 +25,12 @@ void setup(){
     
   //background environment
   backgd = loadImage("chbackground.jpg");
-  //create potato object
+ 
   
+  //space oil object
   firstOiler = new SpaceOil(0, height/4, width, -height, 0.3);
   
+   //create potato object
   potatoOrigin = new Potato(1,1,1);
 
   
