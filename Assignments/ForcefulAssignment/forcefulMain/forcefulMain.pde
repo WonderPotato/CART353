@@ -15,6 +15,9 @@
 
 //declare Potato object
 Potato potatoOrigin;
+
+//SpaceOil object
+SpaceOil firstOiler;
 PImage backgd;
 void setup(){
   
@@ -24,7 +27,9 @@ void setup(){
   backgd = loadImage("chbackground.jpg");
   //create potato object
   
-  potatoOrigin = new Potato();
+  firstOiler = new SpaceOil(0, height/4, width, -height, 0.3);
+  
+  potatoOrigin = new Potato(1,1,1);
 
   
   
@@ -37,9 +42,10 @@ void draw(){
   //background image space 
 background(backgd);
  // image(potatoOrigin, mouseX, mouseY);
-  
+  firstOiler.display();
+ 
+  //pushpopmatrix to move the main potato with the mouse coordinate without affecting the rest of the coordinate system
   pushMatrix();
-  
   translate(mouseX, mouseY);
   potatoOrigin.display();
   popMatrix();

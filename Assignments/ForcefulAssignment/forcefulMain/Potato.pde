@@ -19,28 +19,36 @@ class Potato {
   float mass;
   
   //gotta instantiate the potato objects pvector components
-  Potato() {
-    //mass = m;
+  Potato(float m, float x, float y) {
+    mass = m;
     
-   location = new PVector(mouseX, mouseY);    //we shall change this up later let us just try stuff out now
+    location = new PVector(x, y);
+    
+  // location = new PVector(mouseX, mouseY);    //we shall change this up later let us just try stuff out now
+     velocity = new PVector(0, 0);
    
-   velocity = new PVector(0,0);
-   
-   //acceleration?? it's not an object?
-    mainPotato = loadImage("potatoMain.png");
+     acceleration = new PVector(0, 0);
+     
+     mainPotato = loadImage("potatoMain.png");
 
 
   }
   
-  void newtonForce() {
+  void applyForce(PVector force) {
     
+    PVector f = PVector.div(force, mass);
+    acceleration.add(f);
     
     
   }
   
   
   void update(){
+    velocity.add(acceleration);
+    location.add(velocity);
     
+    //clear acceleration else it will spin out of control so much speed much wow
+    acceleration.mult(0);
     
     
   }

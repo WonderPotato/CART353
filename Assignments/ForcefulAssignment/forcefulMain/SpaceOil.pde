@@ -11,7 +11,7 @@
 
 
 
-class Environment{
+class SpaceOil{
   
   //background
   
@@ -21,21 +21,40 @@ float x,y,w,h,c;
 
 
   
-  Environment(float xEN, float yEN, float wEN, float hEN, float cEN) {
+  SpaceOil(float xEN, float yEN, float wEN, float hEN, float cEN) {
   
   //cool science formula
-  x = xEN;
-  y = yEN;
-  w = wEN;
-  h = hEN;
-  c = cEN;
+  x = xEN;    //location x
+  y = yEN;    //location y  
+  w = wEN;    //width
+  h = hEN;    //height
+  c = cEN;    //coefficient for formula
     
   }
+  
+  
+  
+  
+  //boolean isInsideGas(
+  ///gas area 
+  //size width/3 height/3
+  
+  
+  
+  
+ // void drag(SpaceOil 1) {
+    
+    
+    
+    
+  //}
+  
+  
   
   void display() {
   
     noStroke();
-    fill(200, 45, 120);
+    fill(237, 180, 49, 150);
     rect(x, y, w, h);
     
     

@@ -11,6 +11,8 @@ class FloatFry{
   
   
   PImage fries;
+  PVector location;
+  PVector velocity;
   
   
   
@@ -45,7 +47,22 @@ class FloatFry{
   
   
    void checkEdges() {
+    if (location.x > width) {
+      location.x = width;
+      velocity.x *= -1;
+    } else if (location.x < 0) {
+      velocity.x *= -1;
+      location.x = 0;
+    }
+    //y check up
     
+    if (location.y > height) {
+      velocity.y *= -1;
+      location.y = height; 
+    } else if (location.y < 0) {
+      velocity.y *= -1;
+      location.y = 0;
+    }
     
     
   }
