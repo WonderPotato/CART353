@@ -120,9 +120,14 @@ class Potato {
   
   
   
-  
-  void collider() {
-    
+  //to see if the main potato has made contact with the floating carbs in space munchies
+  boolean floatingCollision(Potato munchiesContact) {
+    if((munchiesContact.location.x > (location.x - 50)) && (munchiesContact.location.x < (location.x + 50))
+    && (munchiesContact.location.y > (location.y - 50)) && (munchiesContact.location.y < (location.y + 50))) {
+      return true;
+    } else {
+      return false;
+    }
     
   }
   
