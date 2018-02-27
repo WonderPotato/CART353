@@ -22,32 +22,20 @@ class FloatFry{
   
   
   
-  int maxImages = 14;   //total# of images 
-  int imageIndex = 0;    //initial image to displayed
   
- // PImage[] fries = new PImage[maxImages];
+  
   PVector location;
   PVector velocity;
   PVector acceleration;
   PImage friesSprite; 
   float mass;
 
-  
-  //for(int i = 0; i < maxImages; i++) {
-  // fries[i] = loadImage(str +[i]+".png"); 
-    
-    
-    
- // }
-  
-  
+
   
     FloatFry(float m, PVector location_ , PImage fries) {
     
-  //  fries = loadImage("something.png");
-    //imageMode(CENTER);
     mass = m;
-    
+   
     location = location_;
     velocity = new PVector(0,0);
     acceleration = new PVector(0,0);

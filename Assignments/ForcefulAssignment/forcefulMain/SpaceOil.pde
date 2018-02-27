@@ -33,10 +33,7 @@ float c;  //draggggg me downnnnnn
   
   
   
-  
-  //boolean isInsideGas(
-  ///gas area 
-  //size width/3 height/3
+ 
   
   //is there anything inside the gas environment???
   boolean contains(Potato potatoBot) {
@@ -68,7 +65,7 @@ float c;  //draggggg me downnnnnn
     
     
     
-  //}
+  
   
   
   

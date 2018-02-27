@@ -1,7 +1,7 @@
 //this is the the potato class
 //the entity that is created from here will be the main attractor in the 2D world
-//where the user will move their mouse around the canvas and thus controlling the space potato
-//the potato wil float in space pulling random objects in its vicinity 
+//where the user will press up down left right to control the potato around the canvas
+//the potato will float in space pulling random objects in its vicinity 
 //once objects are pulled to the potato
 //they will remain attached to the potato
 //further feeding the potato's hungry power
@@ -13,7 +13,7 @@ class Potato {
   PImage mainPotato;
 
   //let's get some PVector up in this class!
-  PVector location;      //gotta make an object for location so we can do some awesome physics!!!
+  PVector location;      
   PVector  velocity;
   PVector acceleration;
   
@@ -25,7 +25,6 @@ class Potato {
     
     location = new PVector(x, y);
     
-  // location = new PVector(mouseX, mouseY);    //we shall change this up later let us just try stuff out now
      velocity = new PVector(0, 0);
    
      acceleration = new PVector(0, 0);
@@ -129,13 +128,7 @@ class Potato {
   
   
   
-  //display the potato icon
-/*void display() {
-    noStroke();
-    fill(0);
-    //ellipse(location.x, location.y, mass*1, mass*1);
-  }
-  */ 
+ 
    //bounce off of the invisible force field in space
    void checkEdges() {
      
