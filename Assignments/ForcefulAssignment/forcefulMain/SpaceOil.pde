@@ -28,7 +28,7 @@ float c;  //draggggg me downnnnnn
   w = wEN;    //width
   h = hEN;    //height
   c = cEN;    //coefficient of drag for formula
-    
+   // c = 0.5;
   }
   
   
@@ -45,7 +45,7 @@ float c;  //draggggg me downnnnnn
       return false;
     }
    }
-  
+
   
  // void drag(SpaceOil 1) {
     PVector drag(Potato potatoBot) {
@@ -67,6 +67,37 @@ float c;  //draggggg me downnnnnn
     
     
     
+    
+      //is there anything inside the gas environment???
+  boolean contains(FloatFry frySprite) {
+    
+    PVector l = frySprite.location;
+    if (l.x > x && l.x < x + w && l.y > y && l.y < y + h) {
+     return true;
+    } else {
+      return false;
+    }
+   }
+    
+    
+    
+     // void drag(SpaceOil 1) {
+    PVector drag(FloatFry frySprite) {
+      //magnitude is coefficient * speed squared
+      float speed = frySprite.velocity.mag();
+      float dragMagnitude = c * speed * speed;
+      
+      //direction is inverse of velocity
+      PVector dragForce = frySprite.velocity.copy();
+      dragForce.mult(-1);
+      
+      //scale accordin to magnitude
+      dragForce.normalize();
+      dragForce.mult(dragMagnitude);
+      //drag.setMag(dragMagnitude);
+      return dragForce;
+      
+    }
   
   
   

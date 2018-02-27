@@ -18,21 +18,13 @@
 
 
 class FloatFry{
-  
-  
-  
-  
-  
-  
+
   PVector location;
   PVector velocity;
   PVector acceleration;
   PImage friesSprite; 
   float mass;
-float angle;
-    float jitter;
-float c;
-  
+
     FloatFry(float m, float x, float y, PImage fries) {
     
     mass = m;
@@ -45,36 +37,6 @@ float c;
     
   }
   
-  
-  
-    
-  void attractor() {
-    
-    
-  }
-  
-  
-  
-  void collider() {
-    
-    
-  }
-  
-  //https://processing.org/examples/rotate.html
-  void jitter() {
-   pushMatrix();
-  
-    if(second() % 2 ==0) {
-      jitter = random(-1, 1);
-    }
-    angle = angle + jitter;
-    float c = cos(angle);
-    translate(width/2, height/2);
-    rotate(c);
-    //friesSprite;
-    popMatrix();
-    
-  }
   
   //newtons cool stuff physics
   void applyForce(PVector force) {
@@ -103,7 +65,7 @@ float c;
   }
   
   
-  
+
   
    void checkEdges() {
     if (location.x > width) {
@@ -125,11 +87,6 @@ float c;
     
     
   }
-  
-  
-  
-  
-  
   
   
   

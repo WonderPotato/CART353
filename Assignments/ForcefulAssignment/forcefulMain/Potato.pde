@@ -42,27 +42,20 @@ class Potato {
     
   }
   
- /* void drag(SpaceOil oily) {
-    //get get that magnitude of veocity vector
-    float speed = velocity.mag();
-    //force magnitude
-    float dragMagnitude = oily.c * speed * speed;
-    
-    //get variable of velocity as a copy!
-    PVector drag = velocity.get();
-    //inverse *-1 to change direction
-    drag.mult(-1);
-    //normalize the vector
-    drag.normalize();
-    
-    //multiply magnitude and direction
-    drag.mult(dragMagnitude);
-    
-    //apply the force luke
-    applyForce(drag);
-    
+  //isinside of the gas??? need boolean
+  boolean insideTheGas(SpaceOil nerveGas) {
+    //true if in and false if not inside
+    if(location.x > (nerveGas.x) && location.x < (nerveGas.x) && 
+    location.y > (nerveGas.y) && location.y < (nerveGas.y)) {
+      return true;
+    }
+    //else false
+    else { 
+      return false;
+    }
   }
-  */
+  
+ 
   
   //function to control main potato using up down arrow keys left right etc, mouse xy wont work with the drag forces.....
   
@@ -95,7 +88,7 @@ class Potato {
   
   
   //from chapter 2 forces in the nature of code nice instructions and examples for the attractor force
-  void attractor(Potato carbs) {
+  void attractor(FloatFry carbs) {
     PVector potatoCoordinate = new PVector(location.x, location.y);
     
     PVector dir = PVector.sub(potatoCoordinate, location);
@@ -113,7 +106,7 @@ class Potato {
     //update the doots of carbs
     carbs.velocity.add(acceleration);
     //constrain some magnitude up on those carbs
-    carbs.velocity.limit(5);
+    carbs.velocity.limit(3);
     carbs.location.add(velocity);
   }
     
@@ -121,9 +114,9 @@ class Potato {
   
   
   //to see if the main potato has made contact with the floating carbs in space munchies
-  boolean floatingCollision(Potato munchiesContact) {
-    if((munchiesContact.location.x > (location.x - 50)) && (munchiesContact.location.x < (location.x + 50))
-    && (munchiesContact.location.y > (location.y - 50)) && (munchiesContact.location.y < (location.y + 50))) {
+  boolean floatingCollision(FloatFry munchiesContact) {
+    if((munchiesContact.location.x > (location.x - 20)) && (munchiesContact.location.x < (location.x + 20))
+    && (munchiesContact.location.y > (location.y - 20)) && (munchiesContact.location.y < (location.y + 20))) {
       return true;
     } else {
       return false;
@@ -153,7 +146,33 @@ class Potato {
   
   
   
-  
+  void dragula(SpaceOil gassy){
+    
+   //mag
+   float speed = velocity.mag();
+   
+   //mag force use formula Cd * v * v
+   float dragMagnitude = gassy.c * speed * speed;
+   
+   //velocity var
+   
+   PVector drag = velocity.get();
+   
+   //-1 mult to inverse direction of velocity
+   drag.mult(-1);
+   
+   //normalize that stuff
+   drag.normalize();
+   
+   //mult the stuff together
+   drag.mult(dragMagnitude);
+   
+   //apply the force luke
+   applyForce(drag);
+    
+    
+    
+  }
  
    //bounce off of the invisible force field in space
    void checkEdges() {
