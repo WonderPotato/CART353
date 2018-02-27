@@ -68,7 +68,7 @@ background(backgd);
  textSize(20);
  fill(10);
  textAlign(CENTER);
- text("Move that potato with the up, down, left, and right arrow keys!", width/2, height/2);
+ text("Click with the left mouse button to begin, Move that potato with the up, down, left, and right arrow keys!", width/2, height/2);
  text("Press the SPACEBAR to stop the potato!", width/2, height/2 + 20);
  text("Careful that yellow stuff is gas and will slow you down!", width/2, height/2 + 40);
  text("get those floating carbs and tools!",width/2, height/2 + 60);

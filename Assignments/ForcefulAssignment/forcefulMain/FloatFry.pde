@@ -11,6 +11,8 @@
  * Demonstration of multiple force acting on bodies (Mover class)
  * Bodies experience gravity continuously
  * Bodies experience fluid resistance when in "water"
+ 
+ also https://forum.processing.org/two/discussion/24548/how-to-make-balls-move-from-bottom-to-top-with-fluid-resistance-effect
  */
 
 
@@ -56,17 +58,6 @@ class FloatFry{
   
   
   
-  //array of each icon
-  //random position movement
-  //size same either normal or small
-  //mass
-  //location
-  //array[13];
-  
-  //("chipBag.png","frenchFries.png","friesCup.png", "lilPotato.png", "mashedTaters.png",
-  //"masher.png", "MrPotatoHd.png", "peeler.png", "potatoCubes.png", "potatoWavyChip.png", "potatoWedges.png",
-  //"potatowholecut.png", "pringles.png", "sackPotatoes.png");
-  
     
   void attractor() {
     
@@ -79,7 +70,8 @@ class FloatFry{
     
     
   }
-  //
+  
+  //newtons cool stuff physics
   void applyForce(PVector force) {
    //divide the received force
    PVector f = PVector.div(force, mass);
