@@ -15,7 +15,8 @@ class SpaceOil{
   
 //drag / liquid / gaseous state needs different variables for its formula coefficient etc
 
-float x,y,w,h,c;
+float x,y,w,h;
+float c;  //draggggg me downnnnnn
 
 
   

@@ -10,26 +10,67 @@
 class FloatFry{
   
   
-  PImage fries;
+  
+  
+  int maxImages = 14;   //total# of images 
+  int imageIndex = 0;    //initial image to displayed
+  
+ // PImage[] fries = new PImage[maxImages];
   PVector location;
   PVector velocity;
+  PVector acceleration;
+  PImage friesSprite; 
+  float mass;
+
   
-  
-  
-  FloatFry() {
+  //for(int i = 0; i < maxImages; i++) {
+  // fries[i] = loadImage(str +[i]+".png"); 
     
-    fries = loadImage("something.png");
-    imageMode(CENTER);
     
+    
+ // }
+  
+  
+  
+    FloatFry(float m, PVector location_ , PImage fries) {
+    
+  //  fries = loadImage("something.png");
+    //imageMode(CENTER);
+    mass = m;
+    
+    location = location_;
+    velocity = new PVector(0,0);
+    acceleration = new PVector(0,0);
+    //image variable for input 
+    friesSprite = fries;
+    
+  }
+  
+  
+  
+  //array of each icon
+  //random position movement
+  //size same either normal or small
+  //mass
+  //location
+  //array[13];
+  
+  //("chipBag.png","frenchFries.png","friesCup.png", "lilPotato.png", "mashedTaters.png",
+  //"masher.png", "MrPotatoHd.png", "peeler.png", "potatoCubes.png", "potatoWavyChip.png", "potatoWedges.png",
+  //"potatowholecut.png", "pringles.png", "sackPotatoes.png");
+  
+    
+  void attractor() {
     
     
   }
   
   
   
-  
-  
-  
+  void collider() {
+    
+    
+  }
   
   
   
@@ -39,7 +80,8 @@ class FloatFry{
   }
   
   void display() {
-    
+    imageMode(CENTER);
+    image(friesSprite, random, random, 120, 120);
     
   }
   

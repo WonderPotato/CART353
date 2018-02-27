@@ -11,7 +11,8 @@
 *    Katamari wannabee
 **/
 
-
+FloatFry[] friesCarb = new FloatFry[14];
+PImage[] frySprites = new PImage[14];
 
 //declare Potato object
 Potato potatoOrigin;
@@ -32,10 +33,21 @@ void setup(){
   //space oil object
   firstOiler = new SpaceOil(0, height/4, width, -height, 0.5);
   
+  PImage mainPotato = loadImage("potatoMain.png");
    //create potato object
-  potatoOrigin = new Potato(1,1,1);
+  potatoOrigin = new Potato(6,1,1, mainPotato);
 
-  
+for (int i = 0; i < frySprites.length; i++) {
+  frySprites[i] = loadImage("potato"+i+".png");
+}
+
+
+  for(int i = 0; i < friesCarb.length; i++) {
+    int index = int(random(0, friesCarb.length));
+   friesCarb[i] = new FloatFry(random(0.1,10), new PVector(random,random), frySprites[index]); 
+    
+    
+  }
   
 }
 
@@ -65,15 +77,27 @@ background(backgd);
  // potatoOrigin.display();
  // popMatrix();
   
+  for (int i = 0; i < friesCarb.length; i++) {
+
+    PVector wind = new PVector(0.01,0);
+    PVector gravity = new PVector(0,0.1);
+    
+    friesCarb[i].applyForce(wind);
+    friesCarb[i].applyForce(gravity);
+
+    friesCarb[i].update();
+    friesCarb[i].display();
+    friesCarb[i].checkEdges();
+  }
   
-   //if(potatoOrigin.contains(firstOiler)) {
+   if(firstOiler.contains(potatoOrigin)) {
      //calculate drag force
-   //  PVector drag = firstOiler.drag(potatoOrigin);
+     PVector drag = firstOiler.drag(potatoOrigin);
      //apply drag force to potatoOrigin
-     //potatoOrigin.applyForce(drag);
-     potatoOrigin.drag(firstOiler);
+     potatoOrigin.applyForce(drag);
+    // potatoOrigin.drag(firstOiler);
     // potatoOrigin.update();
- //  }
+   }
    
    //gravity scaled by mass
   // PVector gravity = new PVector(0, 0.1*potatoOrigin.mass);
@@ -81,10 +105,11 @@ background(backgd);
   // potatoOrigin.applyForce(gravity);
    
    //update stuff display stuff
+   potatoOrigin.displaySprite();
    potatoOrigin.keyControls();
    potatoOrigin.update();
    potatoOrigin.display();
-   
+   potatoOrigin.checkEdges();
  
  
  

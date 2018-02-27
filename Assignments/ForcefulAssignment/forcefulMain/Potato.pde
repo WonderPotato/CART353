@@ -11,6 +11,7 @@ class Potato {
   
   //image object for the sprite
   PImage mainPotato;
+
   //let's get some PVector up in this class!
   PVector location;      //gotta make an object for location so we can do some awesome physics!!!
   PVector  velocity;
@@ -19,7 +20,7 @@ class Potato {
   float mass;
   
   //gotta instantiate the potato objects pvector components
-  Potato(float m, float x, float y) {
+  Potato(float m, float x, float y, PImage potatoSprite) {
     mass = m;
     
     location = new PVector(x, y);
@@ -29,8 +30,7 @@ class Potato {
    
      acceleration = new PVector(0, 0);
      
-     mainPotato = loadImage("potatoMain.png");
-
+     mainPotato = potatoSprite;
 
   }
 
@@ -43,7 +43,7 @@ class Potato {
     
   }
   
-  void drag(SpaceOil oily) {
+ /* void drag(SpaceOil oily) {
     //get get that magnitude of veocity vector
     float speed = velocity.mag();
     //force magnitude
@@ -63,7 +63,7 @@ class Potato {
     applyForce(drag);
     
   }
-  
+  */
   
   //function to control main potato using up down arrow keys left right etc, mouse xy wont work with the drag forces.....
   
@@ -94,7 +94,17 @@ class Potato {
    }
   }
   
+  void attractor() {
+    
+    
+  }
   
+  
+  
+  void collider() {
+    
+    
+  }
   
   void update(){
     velocity.add(acceleration);
@@ -106,12 +116,46 @@ class Potato {
     
   }
   
-  //display the potato icon
-  void display() {
-    imageMode(CENTER);
+  //display the potato sprite seperately from the mass and other force vectors
+  void displaySprite() {
+     imageMode(CENTER);
     image(mainPotato, location.x, location.y);
     mainPotato.resize(100,100);
+    
+    
+    
+  }
+  
+  
+  
+  
+  //display the potato icon
+  void display() {
+    noStroke();
+    fill(0);
+    ellipse(location.x, location.y, mass*1, mass*1);
   }
    
+   //bounce off of the invisible force field in space
+   void checkEdges() {
+     
+     if(location.x > width) {
+       location.x = width;
+       velocity.x *= -1;
+     } else if (location.x < 0) {
+       velocity.x *= -1;
+       location.x = 0;
+     }
+    //check y boundaries  
+     if(location.y > height) {
+       velocity.y *= -1;
+       location.y = height;
+     } else if (location.y < 0) {
+       velocity.y *= -1;
+       location.y = 0;
+     
+     }
  
+  }
+
 }
