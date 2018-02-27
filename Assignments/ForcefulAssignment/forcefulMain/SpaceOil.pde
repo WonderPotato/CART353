@@ -11,7 +11,6 @@
 
 class SpaceOil{
   
-  //background
   
 //drag / liquid / gaseous state needs different variables for its formula coefficient etc
 
