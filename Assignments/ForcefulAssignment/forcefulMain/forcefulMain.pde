@@ -109,11 +109,10 @@ background(backgd);
    //apply gravity
   // potatoOrigin.applyForce(gravity);
    
-   //update stuff display stuff
+   //update stuff display stuff for the main potato controller
    potatoOrigin.displaySprite();
    potatoOrigin.keyControls();
    potatoOrigin.update();
-  // potatoOrigin.display();
    potatoOrigin.checkEdges();
  
  
@@ -132,14 +131,9 @@ background(backgd);
    popMatrix();
     
  // }
-  //if mouse is near the gas spot, make potatomouse rotate & dragged
   */
   
   
   
   
 }
-
-
-//void window page navigation check out last assignment with increase button = page navigation
-//do stuff go to next page
