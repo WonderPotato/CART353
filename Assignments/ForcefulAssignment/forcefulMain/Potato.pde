@@ -93,10 +93,31 @@ class Potato {
    }
   }
   
-  void attractor() {
+  
+  //from chapter 2 forces in the nature of code nice instructions and examples for the attractor force
+  void attractor(Potato carbs) {
+    PVector potatoCoordinate = new PVector(location.x, location.y);
     
+    PVector dir = PVector.sub(potatoCoordinate, location);
     
+    //normalize to become a normal vector
+    dir.normalize();
+    //scale
+    dir.mult(0.3);
+    //change the value 
+    acceleration = dir;
+    
+    //updoot the floatfry sprites locations 
+    carbs.location.x = location.x;
+    carbs.location.y = location.y;
+    //update the doots of carbs
+    carbs.velocity.add(acceleration);
+    //constrain some magnitude up on those carbs
+    carbs.velocity.limit(5);
+    carbs.location.add(velocity);
   }
+    
+  
   
   
   
