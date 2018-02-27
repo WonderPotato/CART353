@@ -29,18 +29,24 @@ PImage backgd;
 
 void setup(){
   
-  size(1920, 1080);    //size of the canvas world
+  size(1080, 720);    //size of the canvas world
     
   //background environment
   backgd = loadImage("chbackground.jpg");
  
   
   //space oil object
-  firstOiler = new SpaceOil(0, height/4, width, -height, 0.5);
+  firstOiler = new SpaceOil(0, height/4, width, -height, 8);
   
   PImage mainPotato = loadImage("potatoMain.png");
    //create potato object
-  potatoOrigin = new Potato(6,1,1, mainPotato);
+  //potatoOrigin[0] = new Potato(0.5, width/2, height/2, mainPotato);   //start the potato at the center
+ //for (int i = 0; i < potatoOrigin.length; i++) {
+   //create potato object
+  potatoOrigin = new Potato(0.1, width/2, height/2, mainPotato);   //start the potato at the center
+  
+ // }
+
 
 for (int i = 0; i < frySprites.length; i++) {
   frySprites[i] = loadImage("potato"+i+".png");
@@ -48,8 +54,9 @@ for (int i = 0; i < frySprites.length; i++) {
 
 
   for(int i = 0; i < friesCarb.length; i++) {
-    int index = int(random(0, frySprites.length));
-   friesCarb[i] = new FloatFry(random(0.1,10), new PVector(int(random(12, 1800)), int(random(12, 1000))), frySprites[index]); 
+        int index = int(random(0, frySprites.length));
+    friesCarb[i] = new FloatFry(random(1, 9), 5, 0, frySprites[index]);
+  // friesCarb[i] = new FloatFry(random(0.1,10), new PVector(int(random(12, 1800)), int(random(12, 1000))), frySprites[index]); 
     
     
   }
@@ -68,10 +75,10 @@ background(backgd);
  textSize(20);
  fill(10);
  textAlign(CENTER);
- text("Click with the left mouse button to begin, Move that potato with the up, down, left, and right arrow keys!", width/2, height/2);
- text("Press the SPACEBAR to stop the potato!", width/2, height/2 + 20);
- text("Careful that yellow stuff is gas and will slow you down!", width/2, height/2 + 40);
- text("get those floating carbs and tools!",width/2, height/2 + 60);
+ text("Move that potato with the up, down, left, and right arrow keys!", width/2, height/2);
+ text("Press the SPACEBAR to stop the potato!", width/2, height/2 + 40);
+ text("Careful that yellow stuff is gas and will slow you down!", width/2, height/2 + 80);
+ text("get those floating carbs and tools!",width/2, height/2 + 120);
  
  //yellow gas spaceoil
   firstOiler.display();
@@ -82,14 +89,18 @@ background(backgd);
  // potatoOrigin.display();
  // popMatrix();
   
+ 
+  
+  
+  
+  //make wind and gravity forces 
+  PVector wind = new PVector(0.01,0);
+    PVector gravity = new PVector(0,0.1);
   for (int i = 0; i < friesCarb.length; i++) {
 
-    PVector wind = new PVector(0.01,0);
-    PVector gravity = new PVector(0,0.1);
-    
- //   friesCarb[i].applyForce(wind);
- //   friesCarb[i].applyForce(gravity);
-
+    friesCarb[i].applyForce(wind);
+    friesCarb[i].applyForce(gravity);
+    friesCarb[i].jitter();
     friesCarb[i].update();
     friesCarb[i].display();
     friesCarb[i].checkEdges();
@@ -97,9 +108,9 @@ background(backgd);
   
    if(firstOiler.contains(potatoOrigin)) {
      //calculate drag force
-     PVector drag = firstOiler.drag(potatoOrigin);
+     PVector dragForce = firstOiler.drag(potatoOrigin);
      //apply drag force to potatoOrigin
-     potatoOrigin.applyForce(drag);
+     potatoOrigin.applyForce(dragForce);
     // potatoOrigin.drag(firstOiler);
     // potatoOrigin.update();
    }
@@ -110,9 +121,10 @@ background(backgd);
   // potatoOrigin.applyForce(gravity);
    
    //update stuff display stuff for the main potato controller
-   potatoOrigin.displaySprite();
+ 
    potatoOrigin.keyControls();
    potatoOrigin.update();
+     potatoOrigin.displaySprite();
    potatoOrigin.checkEdges();
  
  

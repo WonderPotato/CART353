@@ -54,12 +54,14 @@ float c;  //draggggg me downnnnnn
       float dragMagnitude = c * speed * speed;
       
       //direction is inverse of velocity
-      PVector drag = potatoBot.velocity.copy();
-      drag.mult(-1);
+      PVector dragForce = potatoBot.velocity.copy();
+      dragForce.mult(-1);
       
       //scale accordin to magnitude
-      drag.setMag(dragMagnitude);
-      return drag;
+      dragForce.normalize();
+      dragForce.mult(dragMagnitude);
+      //drag.setMag(dragMagnitude);
+      return dragForce;
       
     }
     

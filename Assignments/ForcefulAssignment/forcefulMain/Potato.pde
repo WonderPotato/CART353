@@ -145,7 +145,7 @@ class Potato {
   void displaySprite() {
      imageMode(CENTER);
     image(mainPotato, location.x, location.y);
-    mainPotato.resize(100,100);
+    mainPotato.resize(90,90);
     
     
     

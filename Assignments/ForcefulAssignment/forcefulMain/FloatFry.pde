@@ -29,14 +29,15 @@ class FloatFry{
   PVector acceleration;
   PImage friesSprite; 
   float mass;
-
-
+float angle;
+    float jitter;
+float c;
   
-    FloatFry(float m, PVector location_ , PImage fries) {
+    FloatFry(float m, float x, float y, PImage fries) {
     
     mass = m;
    
-    location = location_;
+    location = new PVector(x, y);;
     velocity = new PVector(0,0);
     acceleration = new PVector(0,0);
     //image variable for input 
@@ -56,6 +57,22 @@ class FloatFry{
   
   void collider() {
     
+    
+  }
+  
+  //https://processing.org/examples/rotate.html
+  void jitter() {
+   pushMatrix();
+  
+    if(second() % 2 ==0) {
+      jitter = random(-1, 1);
+    }
+    angle = angle + jitter;
+    float c = cos(angle);
+    translate(width/2, height/2);
+    rotate(c);
+    //friesSprite;
+    popMatrix();
     
   }
   
@@ -81,8 +98,8 @@ class FloatFry{
   
   void display() {
     imageMode(CENTER);
-    image(friesSprite, location.x, location.y, 120, 120);
-    
+    image(friesSprite, location.x, location.y);
+    friesSprite.resize(120, 120);
   }
   
   
