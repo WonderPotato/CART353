@@ -33,7 +33,8 @@ class Potato {
 
 
   }
-  
+
+   
   void applyForce(PVector force) {
     
     PVector f = PVector.div(force, mass);
@@ -41,6 +42,58 @@ class Potato {
     
     
   }
+  
+  void drag(SpaceOil oily) {
+    //get get that magnitude of veocity vector
+    float speed = velocity.mag();
+    //force magnitude
+    float dragMagnitude = oily.c * speed * speed;
+    
+    //get variable of velocity as a copy!
+    PVector drag = velocity.get();
+    //inverse *-1 to change direction
+    drag.mult(-1);
+    //normalize the vector
+    drag.normalize();
+    
+    //multiply magnitude and direction
+    drag.mult(dragMagnitude);
+    
+    //apply the force luke
+    applyForce(drag);
+    
+  }
+  
+  
+  //function to control main potato using up down arrow keys left right etc, mouse xy wont work with the drag forces.....
+  
+  void keyControls(){
+   //let's move this potato!!!!!!! 
+   if (key == CODED) {
+     
+     //MOVE WITH LEFT ARROW KEY
+     if (keyCode == LEFT ) {
+       location.x -=2;
+       location.y += 0;
+     }
+     //MOVE WITH RIGHT ARROW KEY
+     else if (keyCode == RIGHT) {
+       location.x += 2;
+       location.y += 0;
+     } 
+     //MOVE WITH UP ARROW KEY
+    else if (keyCode == UP) {
+      location.x += 0;
+      location.y -= 2;
+    }    
+    //MOVE WITH DOWN ARROW KEY
+    else if (keyCode == DOWN) {
+      location.x += 0;
+      location.y += 2;
+    }    
+   }
+  }
+  
   
   
   void update(){
@@ -56,7 +109,7 @@ class Potato {
   //display the potato icon
   void display() {
     imageMode(CENTER);
-    image(mainPotato, 0,0);
+    image(mainPotato, location.x, location.y);
     mainPotato.resize(100,100);
   }
    

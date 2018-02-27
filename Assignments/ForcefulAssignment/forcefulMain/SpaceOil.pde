@@ -6,9 +6,7 @@
 //so using the gravitational force formula
 //and other stuff this class will do science physics stuff on everything
 //this class will be enclosed in a specific area of the world
-//specifically the left side as a rectangle with maybe some wavy borders who knows tbh
-
-
+//although t's at the top of the canvas so we will have to reverse engineer this if we can
 
 
 class SpaceOil{
@@ -28,7 +26,7 @@ float x,y,w,h,c;
   y = yEN;    //location y  
   w = wEN;    //width
   h = hEN;    //height
-  c = cEN;    //coefficient for formula
+  c = cEN;    //coefficient of drag for formula
     
   }
   
@@ -39,11 +37,33 @@ float x,y,w,h,c;
   ///gas area 
   //size width/3 height/3
   
-  
+  //is there anything inside the gas environment???
+  boolean contains(Potato potatoBot) {
+    
+    PVector l = potatoBot.location;
+    if (l.x > x && l.x < x + w && l.y > y && l.y < y + h) {
+     return true;
+    } else {
+      return false;
+    }
+   }
   
   
  // void drag(SpaceOil 1) {
-    
+    PVector drag(Potato potatoBot) {
+      //magnitude is coefficient * speed squared
+      float speed = potatoBot.velocity.mag();
+      float dragMagnitude = c * speed * speed;
+      
+      //direction is inverse of velocity
+      PVector drag = potatoBot.velocity.copy();
+      drag.mult(-1);
+      
+      //scale accordin to magnitude
+      drag.setMag(dragMagnitude);
+      return drag;
+      
+    }
     
     
     
