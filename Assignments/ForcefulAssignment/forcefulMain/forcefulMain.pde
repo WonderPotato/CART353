@@ -11,8 +11,13 @@
 *    Katamari wannabee
 **/
 
-FloatFry[] friesCarb = new FloatFry[14];
+
+//image array object
 PImage[] frySprites = new PImage[14];
+
+//object array of floating carbs
+FloatFry[] friesCarb = new FloatFry[14];
+
 
 //declare Potato object
 Potato potatoOrigin;
@@ -43,8 +48,8 @@ for (int i = 0; i < frySprites.length; i++) {
 
 
   for(int i = 0; i < friesCarb.length; i++) {
-    int index = int(random(0, friesCarb.length));
-   friesCarb[i] = new FloatFry(random(0.1,10), new PVector(random,random), frySprites[index]); 
+    int index = int(random(0, frySprites.length));
+   friesCarb[i] = new FloatFry(random(0.1,10), new PVector(int(random(12, 1800)), int(random(12, 1000))), frySprites[index]); 
     
     
   }
@@ -82,8 +87,8 @@ background(backgd);
     PVector wind = new PVector(0.01,0);
     PVector gravity = new PVector(0,0.1);
     
-    friesCarb[i].applyForce(wind);
-    friesCarb[i].applyForce(gravity);
+ //   friesCarb[i].applyForce(wind);
+ //   friesCarb[i].applyForce(gravity);
 
     friesCarb[i].update();
     friesCarb[i].display();
@@ -108,7 +113,7 @@ background(backgd);
    potatoOrigin.displaySprite();
    potatoOrigin.keyControls();
    potatoOrigin.update();
-   potatoOrigin.display();
+  // potatoOrigin.display();
    potatoOrigin.checkEdges();
  
  

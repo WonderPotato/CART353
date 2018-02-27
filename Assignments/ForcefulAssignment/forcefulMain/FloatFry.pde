@@ -3,7 +3,15 @@
 //these flying chips will have their forces on the random
 //meaning some will be big or small
 //some will have varying masses
-
+//references and guides
+/*
+* Forces (Gravity and Fluid Resistence) with Vectors 
+ * by Daniel Shiffman.  
+ * 
+ * Demonstration of multiple force acting on bodies (Mover class)
+ * Bodies experience gravity continuously
+ * Bodies experience fluid resistance when in "water"
+ */
 
 
 
@@ -71,17 +79,29 @@ class FloatFry{
     
     
   }
-  
-  
+  //
+  void applyForce(PVector force) {
+   //divide the received force
+   PVector f = PVector.div(force, mass);
+   
+   //accumulate all the forces in acceleration
+   acceleration.add(f);
+   //
+    
+  }
   
   void update(){
+    velocity.add(acceleration);
+    location.add(velocity);
     
+    //clear acceleration so nothing gets out of hand in space munchies
+    acceleration.mult(0);
     
   }
   
   void display() {
     imageMode(CENTER);
-    image(friesSprite, random, random, 120, 120);
+    image(friesSprite, location.x, location.y, 120, 120);
     
   }
   

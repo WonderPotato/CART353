@@ -130,12 +130,12 @@ class Potato {
   
   
   //display the potato icon
-  void display() {
+/*void display() {
     noStroke();
     fill(0);
-    ellipse(location.x, location.y, mass*1, mass*1);
+    //ellipse(location.x, location.y, mass*1, mass*1);
   }
-   
+  */ 
    //bounce off of the invisible force field in space
    void checkEdges() {
      
