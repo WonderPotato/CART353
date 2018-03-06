@@ -11,7 +11,7 @@
  of my project.* :shit:
 
 
-![alt text](https://github.com/WonderPotato/CART353/edit/master/Assignments/InitialPrototype/images/initialTracker1.PNG "tracker1")
+![alt text](https://github.com/WonderPotato/CART353/blob/master/Assignments/InitialPrototype/images/initialTracker1.PNG "tracker1")
 
 ## Artist's Statement
 
@@ -36,6 +36,7 @@ libraries that address the needs of this project.  Such as skeleton tracking, ba
 removal, silhouette masking, and many more functions that were not achievable within 
 the confines of the kinect V1 model 1414. 
 
+![alt text](https://github.com/WonderPotato/CART353/blob/master/Assignments/InitialPrototype/images/initialTracker2.PNG "tracker2")
 
 ## Stick To The Code:
 
@@ -53,6 +54,7 @@ will react in a way that is mysterious and unique, as well as the intensity of s
 movements, the reaction can then become amplified or simply executed as a distant 
 whisper. 
 
+![alt text](https://github.com/WonderPotato/CART353/blob/master/Assignments/InitialPrototype/images/initialTracker1.PNG "tracker3")
 
 ## The Prototype: 
  
@@ -71,6 +73,7 @@ it was just a matter of placing the right thing in the right place. and I did. a
 working prototype.  by achieving the prototype, I discovered the new direction of the 
 project, upgrading to kinect V2.
 
+![alt text](https://github.com/WonderPotato/CART353/blob/master/Assignments/InitialPrototype/images/initialTracker1.PNG "tracker4")
 
 ## Research Questions Initially:
 
