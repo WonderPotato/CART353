@@ -11,7 +11,7 @@
  of my project.* :shit:
 
 
-![alt text](https://github.com/WonderPotato/CART353/edit/master/Assignments/InitialPrototype/images/initialTracker1.png "initialTracker1")
+![alt text](https://github.com/WonderPotato/CART353/edit/master/Assignments/InitialPrototype/images/initialTracker1.PNG "tracker1")
 
 ## Artist's Statement
 
