@@ -1,3 +1,8 @@
+import org.openkinect.freenect.*;
+import org.openkinect.freenect2.*;
+import org.openkinect.processing.*;
+import org.openkinect.tests.*;
+
 import KinectPV2.KJoint;
 import KinectPV2.*;
 import controlP5.*;
@@ -11,11 +16,9 @@ ControlP5 cp5;
 KinectPV2 kinect;
 
 
-ParticleSystem ps;
 
-Repeller[] repellers;
-
-
+// An angle to rotate around the scene
+float angle = 0;
 
 int depth = 600;
 
@@ -26,6 +29,46 @@ NetAddress myBroadcastLocation;
 //boop this is the traacker boop
  PVector handRight;
   PVector handLeft;
+
+
+//vector instantiation of body parts
+
+//head
+PVector headMain;
+
+//shoulders
+
+PVector shoulderLeft;
+PVector shoulderRight;
+
+//elbows
+
+PVector elbowLeft;
+PVector elbowRight;
+
+//hip
+
+PVector hipLeft;
+PVector hipRight;
+
+//Knees
+
+PVector kneeLeft;
+PVector kneeRight;
+
+//feet
+
+PVector footLeft;
+PVector footRight;
+
+
+
+
+
+
+
+
+
 
 float zVal = 1;
 float rotX = PI;
@@ -38,7 +81,6 @@ float PARTICLE_RADIOUS = 3.0;
 float PARTICLE_NUM = 1000;
 float FORCE = 2.0;
 float a1; 
-ArrayList<ParticleSystem> systems;
 
 void setup() {
   size(1024, 768, P3D);
@@ -55,7 +97,6 @@ void setup() {
     .setColorActive(color(150,150,150))
   ;
 
-  systems = new ArrayList<ParticleSystem>();
 
   kinect = new KinectPV2(this);
 
@@ -66,12 +107,13 @@ void setup() {
 
   kinect.init();
   
-      repellers = new Repeller[10];
-
-  for (int i = 0; i < repellers.length; i++) {
-    repellers[i] = new Repeller(width/2 -20, height/2);
-  }
+ // handRight = new PVector();
   
+  
+  PVector footLeft;
+PVector footRight;
+
+
   oscP5 = new OscP5(this, 6882); 
   myBroadcastLocation = new NetAddress("localhost", 6884);
 }
@@ -83,7 +125,7 @@ void draw() {
 
   //translate the scene to the center 
   pushMatrix();
-  translate(width/2, height/2, depth);
+  translate(width/2, height/2);
   scale(zVal);
   rotateX(rotX);
 
@@ -94,6 +136,8 @@ void draw() {
   //individual JOINTS
   VectorMsg = new OscMessage("/skeleton");
   lsend = "";
+  
+  //cycle through skeleton arry of joints then draw each joints pvector
   for (int i = 0; i < skeletonArray.size(); i++) {
     KSkeleton skeleton = (KSkeleton) skeletonArray.get(i);
     if (skeleton.isTracked()) {
@@ -102,55 +146,133 @@ void draw() {
       //draw different color for each hand state
       drawHandState(joints[KinectPV2.JointType_HandRight]);
       drawHandState(joints[KinectPV2.JointType_HandLeft]);
+      
+      //draw all the pvector body parts!!
+      
       //implement specific joint name from pv2 kinect joint array of skeleton!!!!!!!!!
+      //hands
      handRight = new PVector(joints[KinectPV2.JointType_HandRight].getX(),joints[KinectPV2.JointType_HandRight].getY(),joints[KinectPV2.JointType_HandRight].getZ());
      handLeft = new PVector(joints[KinectPV2.JointType_HandLeft].getX(),joints[KinectPV2.JointType_HandLeft].getY(),joints[KinectPV2.JointType_HandLeft].getZ());
+     
+     //head
+     headMain = new PVector(joints[KinectPV2.JointType_Head].getX(),joints[KinectPV2.JointType_Head].getY(),joints[KinectPV2.JointType_Head].getZ());
+
+     //shoulders
+     shoulderLeft = new PVector(joints[KinectPV2.JointType_ShoulderLeft].getX(), joints[KinectPV2.JointType_ShoulderLeft].getY(), joints[KinectPV2.JointType_ShoulderLeft].getZ());
+     shoulderRight = new PVector(joints[KinectPV2.JointType_ShoulderRight].getX(), joints[KinectPV2.JointType_ShoulderRight].getY(), joints[KinectPV2.JointType_ShoulderRight].getZ());
+fill(200,30,30);
+strokeWeight(50);
+point(shoulderLeft.x*40, shoulderLeft.y*40, shoulderLeft.z*40);
+     //elbows
+     elbowRight = new PVector(joints[KinectPV2.JointType_ElbowRight].getX(), joints[KinectPV2.JointType_ElbowRight].getY(), joints[KinectPV2.JointType_ElbowRight].getZ());
+     elbowLeft = new PVector(joints[KinectPV2.JointType_ElbowLeft].getX(), joints[KinectPV2.JointType_ElbowLeft].getY(), joints[KinectPV2.JointType_ElbowLeft].getZ());
+     
+     //hip
+     hipLeft  = new PVector(joints[KinectPV2.JointType_HipLeft].getX(), joints[KinectPV2.JointType_HipLeft].getY(), joints[KinectPV2.JointType_HipLeft].getZ());
+     hipRight  = new PVector(joints[KinectPV2.JointType_HipRight].getX(), joints[KinectPV2.JointType_HipRight].getY(), joints[KinectPV2.JointType_HipRight].getZ());
+
+     //Knees
+     kneeRight = new PVector(joints[KinectPV2.JointType_KneeRight].getX(), joints[KinectPV2.JointType_KneeRight].getY(), joints[KinectPV2.JointType_KneeRight].getZ());
+       kneeLeft  = new PVector(joints[KinectPV2.JointType_KneeLeft].getX(), joints[KinectPV2.JointType_KneeLeft].getY(), joints[KinectPV2.JointType_KneeLeft].getZ());
+
+     //feet
+     footLeft = new PVector(joints[KinectPV2.JointType_FootLeft].getX(), joints[KinectPV2.JointType_FootLeft].getY(), joints[KinectPV2.JointType_FootLeft].getZ());
+     footRight = new PVector(joints[KinectPV2.JointType_FootRight].getX(), joints[KinectPV2.JointType_FootRight].getY(), joints[KinectPV2.JointType_FootRight].getZ());
+     
+     
+ 
+     
+     strokeWeight(25);
+     fill(255,0,50);
+     // point
+     // float hipmove = point(hipLeft.x *40, hipLeft.y*40, hipLeft.z*40);
+     //ellipse(hipLeft.x*40, hipLeft.y*40, 50, 50);
+     
+   
+     
+     
+     
+     
+     
+
+     
+     
+     
+
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
       //Draw body
       color col  = skeleton.getIndexColor();
       stroke(col);
       drawBody(joints);
     }
   }
+  
+  popMatrix();
+  
+  
+ pushMatrix();
+       
+    // float ellipseSize = map(hipLeft.x*40, hipLeft.y*40, hipLeft.z*40, 1.02, 2.3);
+//ellipse(hipLeft.x*40, hipLeft.y*40, ellipseSize, ellipseSize);
+     
+     
+     
+     
+        translate(200, 300, 200);
+rotateY(1.25);
+rotateX(-0.4);
+noStroke();
+box(10);
+     
+     
   VectorMsg.add(lsend);
   oscP5.send(VectorMsg, myBroadcastLocation);
   popMatrix();
 //noStroke();
 
-  for (ParticleSystem ps : systems) {
-    ps.run();
-    ps.addParticle();
-  }
-  if (systems.isEmpty()) {
+
+
+ // systems.add(new ParticleSystem());
+  //ps.repel(handRight);
+       //handRight.repeller(ps); //add something to attract stuff to this guy
+//systems.add(new ParticleSystem(joints[KinectPV2.JointType_FootLeft].getX()));
+//w PVector(handLeft.x, handLeft.y)));
+  
+  
+   
+
+//s.(handRight);
+
+  // Display the Sun
+ // handRight.display();
+
+  // All the Planets
+
+
+
+
+ /* if (systems.isEmpty()) {
     fill(255);
     textAlign(CENTER);
     text("click mouse to add particle systems", width/2, height/2);
-  }
-
-int jointHand = KinectPV2.JointType_HandTipLeft;
-
-drawJoint(1, jointHand);
-
-PVector point1 = new PVector(-500, 0, 1500);
-PVector point2 = new PVector(500, 0, 700);
+  }*/
+// println("sun : :" + s.position.x );
 
   fill(255, 0, 0);
   text(frameRate, 50, 50);
 }
 
-void drawJoint(int userID, int jointId) {
-// make a vector to store the left hand
-PVector jointPosition = new PVector();
-// put the position of the left hand into that vector
-//kinect.getJointPositionSkeleton(userID, jointId, jointPosition);
-// convert the detected hand position to "projective" coordinates that will match the depth image
-PVector convertedJointPosition = new PVector();
-//kinect.convertRealWorldToProjective(jointPosition, convertedJointPosition);
-// and display it
-fill(255, 0, 0);
 
-float ellipseSize = map(convertedJointPosition.z, 700, 2500, 50, 1);
-ellipse(convertedJointPosition.x, convertedJointPosition.y, ellipseSize, ellipseSize);
-}
 
 void drawBody(KJoint[] joints) {
   drawBone(joints, KinectPV2.JointType_Head, KinectPV2.JointType_Neck);
@@ -216,7 +338,7 @@ void drawHandState(KJoint joint) {
   handState(joint.getState());
   //strokeWeight(5.0f + joint.getZ()*20);
  // point(joint.getX()*40, joint.getY()*40, joint.getZ()*40);
- println("LEFT:: "+joint.getX()*40);
+// println("LEFT:: "+joint.getX()*40);
 }
 
 void handState(int handState) {
@@ -225,19 +347,19 @@ void handState(int handState) {
     stroke(0, 255, 0);
     break;
   case KinectPV2.HandState_Closed:
-    //stroke(255, 0, 0);
+    stroke(255, 0, 0);
       //create particles need to make it come out of hands joint!!!!  howwwwww
-     // systems.add(new ParticleSystem(2, new PVector(handLeft.x, handLeft.y)));
+     // systems.add(new ParticleSystem(width/2, new PVector(hipLeft.x*40, hipLeft.y*40, hipLeft.z*40)));
     // fill(255,0,0);
+    //systems.position(kneeLeft);
     // ellipse(handLeft.x*40, handLeft.y*40,50,50);
-     strokeWeight(5);
-    point(handLeft.x*40, handLeft.y*40 , handLeft.z*40);
-     //println(handLeft.x*40);
+     //strokeWeight(25);
+   // point(handLeft.x*40, handLeft.y*40 , handLeft.z*40);
+     println(handLeft.x*40);
     break;
   case KinectPV2.HandState_Lasso:
     stroke(0, 0, 255);
-       //lasso movement supposed to appear at finger tips but appears at 0,0
-    //systems.add(new ParticleSystem(1, new PVector(KinectPV2.JointType_HandTipLeft, KinectPV2.JointType_HandTipRight,0)));
+   
   
     break;
   case KinectPV2.HandState_NotTracked:
@@ -245,3 +367,7 @@ void handState(int handState) {
     break;
   }
 }
+
+
+
+//classes
