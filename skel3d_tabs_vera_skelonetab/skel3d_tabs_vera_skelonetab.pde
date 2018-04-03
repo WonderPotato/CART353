@@ -66,8 +66,30 @@ void setup() {
   // A single sun
   //s = new Sun();
    pEmit = new ParticleEmission(new PVector(width/2, height/2));
+ 
+    //  s = new Sun(new PVector(leftElbowX), ));
 
-}
+
+//initialize objects of anything with skeleton joint data here
+//use skeleton.jointnameX, skeleton.jointnameY
+
+
+
+
+
+      s = new Sun(skeleton.leftElbowX, skeleton.leftElbowY);
+
+//particle system
+
+//sun on the shoulders
+
+//lines cut across
+
+//sound burst
+//play video in background\
+
+ 
+ }
 
 void draw() {
   background(0);
@@ -75,7 +97,7 @@ void draw() {
 
   skeleton.displaySkeleton();
 
-  
+
   pEmit.addParticle();
   pEmit.run();
 // If you want to see the RGB image from HD Camera
