@@ -12,16 +12,15 @@ import KinectPV2.*;
 KinectPV2 kinect;
 
 KinectSkeleton skeleton;
-//ParticleEmission pEmit;
 
-ParticleSystemB ps;
 
-ParticleEmission pEmit;
 
-//ParticleEm[] pEmits = new ParticleEm[1000];
 
 // A bunch of planets
 Planet[] planets = new Planet[20];
+
+
+Planet[] planets2 = new Planet[5];
 // One sun (note sun is not attracted to planets (violation of Newton's 3rd Law)
 Sun s;
 // An angle to rotate around the scene
@@ -63,27 +62,16 @@ void setup() {
      for (int i = 0; i < planets.length; i++) {
     planets[i] = new Planet(random(0.1, 12), random(-width/2, width/2), random(-height/2, height/2), random(-100, 100));
   }
-  // A single sun
-  //s = new Sun();
-   pEmit = new ParticleEmission(skeleton.headX , skeleton.headY );
- 
-    //  s = new Sun(new PVector(leftElbowX), ));
 
-
-//initialize objects of anything with skeleton joint data here
-//use skeleton.jointnameX, skeleton.jointnameY
+for(int b = 0; b < planets2.length; b++) {
+  planets2[b] = new Planet(random(0.1, 5), random(-width/4, width/4), random(-height/4, height/4), random(-50,50));
+}
 
 
 
 
-
-      s = new Sun(skeleton.leftElbowX, skeleton.leftElbowY);
-
-
-//particle system
 
 //sun on the shoulders
-s2 = new Sun(skeleton.leftShoulderX, skeleton.leftShoulderY);
 //lines cut across
 
 //sound burst
@@ -97,19 +85,20 @@ void draw() {
 
 
   skeleton.displaySkeleton();
+ s = new Sun(skeleton.leftElbowX, skeleton.leftElbowY);
+s2 = new Sun(skeleton.rightShoulderX, skeleton.rightShoulderY);
 
-
-  pEmit.addParticle();
-  pEmit.run();
 // If you want to see the RGB image from HD Camera
   //image(kinect.getColorImage(), 0, 0, width, height);
-
-
+ // strokeWeight(100);
+ stroke(255,05,155);
+ellipse(skeleton.headX, skeleton.headY, 85,85);
        
+ //      strokeWeight(5);
    s.display(); 
     s2.display();
 
- 
+ pushMatrix();
        sphereDetail(8);
   lights();
   translate(width/2, height/2);
@@ -123,9 +112,7 @@ void draw() {
   for (Planet planet : planets) {
     // Sun attracts Planets
     PVector force = s.attract(planet);
-    PVector force2 = s2.attract(planet);
     
-    planet.applyForce(force2);
     
     planet.applyForce(force);
     // Update and draw Planets
@@ -136,10 +123,39 @@ void draw() {
   // Rotate around the scene
   angle += 0.003;
         
- 
+ popMatrix();
   
+  
+  pushMatrix();
+  
+  // All the Planets
+  for (Planet planet : planets2) {
+    // Sun attracts Planets
+    PVector force2 = s2.attract(planet);
+    
+    planet.applyForce(force2);
+    
+    // Update and draw Planets
+    planet.update();
+    planet.display();
+  }
+
+  // Rotate around the scene
+  angle += 0.01;
+        
+ popMatrix();
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  pushMatrix();
      //} else   {
-  if (skeleton.rightElbowX > width /2 && skeleton.rightElbowY > width/2) {
+  if (skeleton.headX > width/2) {
 if (random(1) < 0.2) {
     fireworks.add(new Firework());
   }
@@ -156,22 +172,9 @@ if (random(1) < 0.2) {
       fireworks.remove(p);
     }
   }
-    // }
        
-  
-       
-     
-  
-     }
-   
-   
-
-
-  
-       
-       pEmit.addParticle();
-  pEmit.run();
-println("particle emission:: " + pEmit);
+  }
+  popMatrix();
      
   fill(255, 0, 0);
   textSize(10);

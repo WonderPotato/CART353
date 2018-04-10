@@ -100,7 +100,7 @@ void drawBody(KJoint[] joints) {
   rightShoulderX = joints[KinectPV2.JointType_ShoulderRight].getX();
   rightShoulderY = joints[KinectPV2.JointType_ShoulderRight].getY();
   leftShoulderX = joints[KinectPV2.JointType_ShoulderLeft].getX();
-  rightShoulderY = joints[KinectPV2.JointType_ShoulderLeft].getY();
+  leftShoulderY = joints[KinectPV2.JointType_ShoulderLeft].getY();
   
   
   
