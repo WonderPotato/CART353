@@ -27,7 +27,7 @@ Sun s;
 // An angle to rotate around the scene
 float angle = 0;
 
-
+Sun s2;
 ArrayList<Firework> fireworks;
 
 PVector gravity = new PVector(0, 0.2);
@@ -65,7 +65,7 @@ void setup() {
   }
   // A single sun
   //s = new Sun();
-   pEmit = new ParticleEmission(new PVector(width/2, height/2));
+   pEmit = new ParticleEmission(skeleton.headX , skeleton.headY );
  
     //  s = new Sun(new PVector(leftElbowX), ));
 
@@ -79,10 +79,11 @@ void setup() {
 
       s = new Sun(skeleton.leftElbowX, skeleton.leftElbowY);
 
+
 //particle system
 
 //sun on the shoulders
-
+s2 = new Sun(skeleton.leftShoulderX, skeleton.leftShoulderY);
 //lines cut across
 
 //sound burst
@@ -104,33 +105,10 @@ void draw() {
   //image(kinect.getColorImage(), 0, 0, width, height);
 
 
-// Get the 2D array data points from the Skeleton Color Map  
- 
-
-
-// Get the Skeleton data joints (X & Y only)
-
- 
-      //s = new Sun(joints[KinectPV2.JointType_HipRight].getX(), joints[KinectPV2.JointType_HipRight].getY());
-    
- 
-
-    // if(joints[KinectPV2.JointType_HipRight].getX() < width/2) {
        
-   //s.display(); 
-    
-    // for (int c = 0; c < pEmits.length; c++) {
- //   pEmits[c] = new ParticleEm(parEm);
- // }   
-       
-  //  for(ParticleEm pEmit : pEmits) {
+   s.display(); 
+    s2.display();
 
-
-// pEmit.display();
- //  pEmit.update();
-  
-  
-//}
  
        sphereDetail(8);
   lights();
@@ -142,9 +120,13 @@ void draw() {
 
   
   // All the Planets
- /* for (Planet planet : planets) {
+  for (Planet planet : planets) {
     // Sun attracts Planets
     PVector force = s.attract(planet);
+    PVector force2 = s2.attract(planet);
+    
+    planet.applyForce(force2);
+    
     planet.applyForce(force);
     // Update and draw Planets
     planet.update();
@@ -154,10 +136,10 @@ void draw() {
   // Rotate around the scene
   angle += 0.003;
         
- */
+ 
   
      //} else   {
-  
+  if (skeleton.rightElbowX > width /2 && skeleton.rightElbowY > width/2) {
 if (random(1) < 0.2) {
     fireworks.add(new Firework());
   }
@@ -180,7 +162,7 @@ if (random(1) < 0.2) {
        
      
   
-  
+     }
    
    
 

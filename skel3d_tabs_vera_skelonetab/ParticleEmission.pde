@@ -3,8 +3,8 @@ class ParticleEmission{
   PVector origin;
   int particleSpawnRate = 0;
 
-  ParticleEmission(PVector position) {
-    origin = position.get();
+  ParticleEmission(float x, float y) {
+    origin = new PVector(x, y);
     particles = new ArrayList<ParticleEm>();
   }
 

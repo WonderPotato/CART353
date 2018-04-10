@@ -21,6 +21,11 @@ class KinectSkeleton {
   float rightHandX;
   float rightHandY;
   
+  float rightShoulderX;
+  float rightShoulderY;
+  float leftShoulderX;
+  float leftShoulderY;
+  
 
   void displaySkeleton(){
       ArrayList<KSkeleton> skeletonArray =  kinect.getSkeletonColorMap();
@@ -90,6 +95,14 @@ void drawBody(KJoint[] joints) {
   drawJoint(joints, KinectPV2.JointType_Head);
   
   //get the X,Y coordinates of joints
+  
+  //shoulders
+  rightShoulderX = joints[KinectPV2.JointType_ShoulderRight].getX();
+  rightShoulderY = joints[KinectPV2.JointType_ShoulderRight].getY();
+  leftShoulderX = joints[KinectPV2.JointType_ShoulderLeft].getX();
+  rightShoulderY = joints[KinectPV2.JointType_ShoulderLeft].getY();
+  
+  
   
   //elbows
   rightElbowX = joints[KinectPV2.JointType_ElbowRight].getX();
