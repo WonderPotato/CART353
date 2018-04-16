@@ -4,7 +4,7 @@ import shapes3d.utils.*;
 import camera3D.*;
 import camera3D.generators.*;
 import camera3D.generators.util.*;
-import gifAnimation.*;
+import GifAnimation.*;
 import processing.video.*;
 
 /*
