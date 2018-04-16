@@ -13,7 +13,10 @@ KinectPV2 kinect;
 
 KinectSkeleton skeleton;
 
-
+ParticleEmission pEmit2;
+ParticleEmission pEmit3;
+ParticleEmission pEmit6;
+ParticleEmission pEmit7;
 
 
 // A bunch of planets
@@ -65,6 +68,15 @@ void setup() {
 
 for(int b = 0; b < planets2.length; b++) {
   planets2[b] = new Planet(random(0.1, 5), random(-width/4, width/4), random(-height/4, height/4), random(-50,50));
+  
+  
+    //emission initialize
+  pEmit2 = new ParticleEmission(new PVector(skeleton.leftHandX,skeleton.leftHandY));
+  pEmit3 = new ParticleEmission(new PVector(skeleton.rightHandX,skeleton.rightHandY));
+  pEmit6 = new ParticleEmission(new PVector(skeleton.leftShoulderX,skeleton.leftShoulderY));
+  pEmit7 = new ParticleEmission(new PVector(skeleton.rightShoulderX, skeleton.rightShoulderY));
+  
+  
 }
 
 
@@ -85,7 +97,7 @@ void draw() {
 
 
   skeleton.displaySkeleton();
- s = new Sun(skeleton.leftElbowX, skeleton.leftElbowY);
+ s = new Sun(skeleton.leftShoulderX, skeleton.leftShoulderY);
 s2 = new Sun(skeleton.rightShoulderX, skeleton.rightShoulderY);
 
 // If you want to see the RGB image from HD Camera
@@ -175,7 +187,25 @@ if (random(1) < 0.2) {
        
   }
   popMatrix();
-     
+  
+  
+  
+  
+     //particle emitter update functions
+
+  pEmit2.addParticle(skeleton.leftHandX,skeleton.leftHandY);
+  pEmit2.run();
+  pEmit3.addParticle(skeleton.rightHandX,skeleton.rightHandY);
+  pEmit3.run();
+
+  pEmit6.addParticle(skeleton.leftShoulderX,skeleton.leftShoulderY);
+  pEmit6.run();
+  pEmit7.addParticle(skeleton.rightShoulderX, skeleton.rightShoulderY);
+  pEmit7.run();
+  
+  
+  
+  
   fill(255, 0, 0);
   textSize(10);
   text(frameRate, 50, 50);

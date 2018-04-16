@@ -34,7 +34,7 @@ class Planet {
   // Draw the Planet
   void display() {
     noStroke();
-    fill(255,0,255);
+    fill(150,60,255);
     pushMatrix();
     translate(position.x, position.y, position.z);
     sphere(mass*12);

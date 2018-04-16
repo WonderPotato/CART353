@@ -63,11 +63,11 @@ class Particle {
 
   // Method to display
   void display() {
-    stroke(hu, 255, 255, lifespan);
+    stroke(hu, 360, 255, lifespan);
     if (seed) {
-      strokeWeight(4);
+      strokeWeight(20);
     } else {
-      strokeWeight(2);
+      strokeWeight(5);
     }
     pushMatrix();
     translate(location.x, location.y, location.z);

@@ -1,24 +1,26 @@
 class ParticleEmission{
-  ArrayList<ParticleEm> particles;
+  
+  ArrayList<ParticleEmit> particles;
   PVector origin;
-  int particleSpawnRate = 0;
+  int particleSpawnRate = 10;
 
-  ParticleEmission(float x, float y) {
-    origin = new PVector(x, y);
-    particles = new ArrayList<ParticleEm>();
+  ParticleEmission(PVector position) {
+    origin = position.get();
+    particles = new ArrayList<ParticleEmit>();
   }
 
-  void addParticle() {
+  void addParticle(float x, float y) {
+    origin = new PVector(x,y);
     particleSpawnRate++;
     //float r = random(1);
-    if ((particleSpawnRate % 20) == 0) { 
-      particles.add(new ParticleEm(origin));
+    if ((0 % particleSpawnRate) == 0) { 
+      particles.add(new ParticleEmit(origin));
     } 
   }
 
   void run() {
     for (int i = particles.size()-1; i >= 0; i--) {
-      ParticleEm p = particles.get(i);
+      ParticleEmit p = particles.get(i);
       p.run();
       if (p.isDead()) {
         particles.remove(i);

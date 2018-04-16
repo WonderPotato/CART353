@@ -27,7 +27,7 @@ class Firework {
   }
 
   void run() {
-    colorMode(HSB);
+    colorMode(RGB, 500, 500, 500);
     if (firework != null) {
       fill(hu,255,255);
       firework.applyForce(gravity);

@@ -27,7 +27,7 @@ class Sun {
 
   // Draw Sun
   void display() {
-    stroke(255);
+    stroke(36,204,126);
     noFill();
     pushMatrix();
     translate(position.x, position.y, 2.0);
