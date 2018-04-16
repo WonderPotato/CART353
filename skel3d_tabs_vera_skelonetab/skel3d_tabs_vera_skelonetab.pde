@@ -94,7 +94,9 @@ for(int b = 0; b < planets2.length; b++) {
 
 void draw() {
   background(0);
-
+  fill(255);
+  textSize(20);
+text("Ignite your world here!", width/1.9, height/6);
 
   skeleton.displaySkeleton();
  s = new Sun(skeleton.leftShoulderX, skeleton.leftShoulderY);
