@@ -22,30 +22,22 @@ ParticleEmission pEmit7;
 
 //sound files to initialize
 
-
+//tieexplode
 SoundFile explodeHead;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//lightsaberclash
+SoundFile lightClash;
+//lightsaberon
+SoundFile lightOn;
+//SWtheme
+SoundFile swTheme;
+//tiefire
+SoundFile tieFire;
+//weeoow
+SoundFile weeOow;
+//xwingexplode
+SoundFile xExplode;
+//imperialmarch
+SoundFile imperialM;
 
 
 // A bunch of planets
@@ -74,7 +66,7 @@ void setup() {
 
   kinect.enableSkeletonColorMap(true);
   kinect.enableColorImg(true);
- kinect.enableDepthImg(true);
+  kinect.enableDepthImg(true);
   kinect.enableDepthMaskImg(true);
   kinect.enableInfraredImg(true); 
   kinect.enableSkeletonDepthMap(true);
@@ -85,10 +77,10 @@ void setup() {
   kinect.init();
    
    
-     skeleton = new KinectSkeleton();
+  skeleton = new KinectSkeleton();
 
 
-   fireworks = new ArrayList<Firework>();
+  fireworks = new ArrayList<Firework>();
   
   
      for (int i = 0; i < planets.length; i++) {
@@ -104,6 +96,32 @@ for(int b = 0; b < planets2.length; b++) {
   pEmit3 = new ParticleEmission(new PVector(skeleton.rightHandX,skeleton.rightHandY));
   pEmit6 = new ParticleEmission(new PVector(skeleton.leftShoulderX,skeleton.leftShoulderY));
   pEmit7 = new ParticleEmission(new PVector(skeleton.rightShoulderX, skeleton.rightShoulderY));
+  
+  
+  //tieexplode
+   explodeHead = new SoundFile(this, "TIEexplode.mp3");
+//lightsaberclash
+ lightClash = new SoundFile(this, "LightsaberClash.mp3");
+//lightsaberon
+ lightOn = new SoundFile(this, "lightSaberOn.mp3");
+//SWtheme
+ swTheme = new SoundFile(this, "SWTheme.mp3");
+//tiefire
+ tieFire = new SoundFile(this, "TIEfire.mp3");
+//weeoow
+ weeOow = new SoundFile(this, " ");
+//xwingexplode
+ xExplode = new SoundFile(this, " ");
+//imperialmarch
+ imperialM = new SoundFile(this, " ");
+
+  
+  
+  
+  
+  
+  
+  
   
   
 }
