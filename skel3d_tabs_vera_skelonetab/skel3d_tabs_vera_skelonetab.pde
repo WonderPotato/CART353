@@ -5,7 +5,7 @@ Thomas Sanchez Lengeling.
  Skeleton color map example.
  Skeleton (x,y) positions are mapped to match the color Frame
  */
-
+import processing.sound.*;
 import KinectPV2.KJoint;
 import KinectPV2.*;
 
@@ -17,6 +17,35 @@ ParticleEmission pEmit2;
 ParticleEmission pEmit3;
 ParticleEmission pEmit6;
 ParticleEmission pEmit7;
+
+
+
+//sound files to initialize
+
+
+SoundFile explodeHead;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // A bunch of planets
@@ -103,7 +132,7 @@ text("Ignite your world here!", width/1.9, height/6);
 s2 = new Sun(skeleton.rightShoulderX, skeleton.rightShoulderY);
 
 // If you want to see the RGB image from HD Camera
-  //image(kinect.getColorImage(), 0, 0, width, height);
+ // image(kinect.getColorImage(), 0, 0, width, height);
  // strokeWeight(100);
  stroke(255,05,155);
 ellipse(skeleton.headX, skeleton.headY, 85,85);
