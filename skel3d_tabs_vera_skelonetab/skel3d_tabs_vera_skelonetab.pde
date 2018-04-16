@@ -109,11 +109,11 @@ for(int b = 0; b < planets2.length; b++) {
 //tiefire
  tieFire = new SoundFile(this, "TIEfire.mp3");
 //weeoow
- weeOow = new SoundFile(this, " ");
+ weeOow = new SoundFile(this, "WEEOOW.mp3");
 //xwingexplode
- xExplode = new SoundFile(this, " ");
+ xExplode = new SoundFile(this, "XWingexplode.mp3");
 //imperialmarch
- imperialM = new SoundFile(this, " ");
+ imperialM = new SoundFile(this, "imperialMarch.mp3");
 
   
   
