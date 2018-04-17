@@ -286,7 +286,28 @@ ellipse(skeleton.headX, skeleton.headY, 85,85);
  
   
   
+
+   textSize(25);
+   text("aim your arms downwards!", 100, 100);
+   if(skeleton.wristLeftX >= width/2 && skeleton.wristLeftY >= height/2 && skeleton.wristRightX >= width/2 && skeleton.wristRightY >= height/2) {
+     
+   
+   
+ 
+   image(impactLight ,width/2, height/2);
+   
   
+
+   
+   image(bb8,width/8,width/6);
+ 
+  
+    image(obino, width/4,width/6);
+    
+     image(renep8,width/5,width/4);
+       
+   }
+      
   
   
   
@@ -299,6 +320,7 @@ if (random(1) < 0.2) {
   }
 
  translate(width/2, height, -1000);
+
   rotateY(frameCount*0.003);
 
 
@@ -310,6 +332,12 @@ if (random(1) < 0.2) {
       fireworks.remove(p);
     }
   }
+   
+      
+       
+       
+       
+       
        
   }
   popMatrix();
@@ -369,21 +397,8 @@ translate(skeleton.wristRightX-10, skeleton.wristRightY-150);
      
  /*
    
-   image(slowLight,1,1);
- 
-   image(impactLight,1,1);
    
-  
- 
-  image(girlPlease,12,12);
-   
-   image(bb8,1,1);
- 
-  
-    image(obino, 2,2);
-    
-     image(renep8, 2,2);
-     
+     image(slowLight,width/4,width/4);
      
      
       image(poeep7, 2,2);

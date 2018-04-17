@@ -41,6 +41,8 @@ class KinectSkeleton {
   float hipLeftX;
   float hipLeftY;
   
+  float spineBaseX;
+  float spineBaseY;
 
   void displaySkeleton(){
       ArrayList<KSkeleton> skeletonArray =  kinect.getSkeletonColorMap();
@@ -111,7 +113,10 @@ void drawBody(KJoint[] joints) {
   
   //get the X,Y coordinates of joints
   
-  
+  //spine
+  spineBaseX = joints[KinectPV2.JointType_SpineBase].getX();
+    spineBaseY = joints[KinectPV2.JointType_SpineBase].getY();
+
   //knee
   kneeRightX = joints[KinectPV2.JointType_KneeRight].getX();
   kneeRightY = joints[KinectPV2.JointType_KneeRight].getY();
