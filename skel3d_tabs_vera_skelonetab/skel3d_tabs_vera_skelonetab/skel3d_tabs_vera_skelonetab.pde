@@ -1,4 +1,3 @@
-import milchreis.imageprocessing.*;
 
 import processing.video.*;
 /*
