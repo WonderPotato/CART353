@@ -1,12 +1,5 @@
-import shapes3d.*;
-import shapes3d.animation.*;
-import shapes3d.utils.*;
-import camera3D.*;
-import camera3D.generators.*;
-import camera3D.generators.util.*;
-import gifAnimation.*;
-import processing.video.*;
 
+import processing.video.*;
 /*
 Thomas Sanchez Lengeling.
  http://codigogenerativo.com/
