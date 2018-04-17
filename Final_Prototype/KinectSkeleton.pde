@@ -31,6 +31,15 @@ class KinectSkeleton {
   float wristLeftX;
   float wristLeftY;
   
+  float kneeRightX;
+  float kneeRightY;
+  float kneeLeftX;
+  float kneeLeftY;
+  
+  float hipRightX;
+  float hipRightY;
+  float hipLeftX;
+  float hipLeftY;
   
 
   void displaySkeleton(){
@@ -101,6 +110,22 @@ void drawBody(KJoint[] joints) {
   drawJoint(joints, KinectPV2.JointType_Head);
   
   //get the X,Y coordinates of joints
+  
+  
+  //knee
+  kneeRightX = joints[KinectPV2.JointType_KneeRight].getX();
+  kneeRightY = joints[KinectPV2.JointType_KneeRight].getY();
+  kneeLeftX = joints[KinectPV2.JointType_KneeLeft].getX();
+  kneeLeftY = joints[KinectPV2.JointType_KneeLeft].getY();
+    
+  //hips
+  hipRightX = joints[KinectPV2.JointType_HipRight].getX();
+  hipRightY = joints[KinectPV2.JointType_HipRight].getY();
+  hipLeftX = joints[KinectPV2.JointType_HipLeft].getX();
+  hipLeftY = joints[KinectPV2.JointType_HipLeft].getY();
+  
+  
+  
   
   //shoulders
   rightShoulderX = joints[KinectPV2.JointType_ShoulderRight].getX();

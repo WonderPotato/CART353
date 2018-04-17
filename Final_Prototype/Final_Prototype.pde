@@ -52,11 +52,10 @@ Gif reyren;
 
    
 PImage saberLight;
-
+PImage saberDark;
 //sound files to initialize
 
-//tieexplode
-SoundFile explodeHead;
+
 //lightsaberclash
 SoundFile lightClash;
 //lightsaberon
@@ -65,8 +64,6 @@ SoundFile lightOn;
 SoundFile swTheme;
 //tiefire
 SoundFile tieFire;
-//weeoow
-SoundFile weeOow;
 //xwingexplode
 SoundFile xExplode;
 //imperialmarch
@@ -131,10 +128,9 @@ for(int b = 0; b < planets2.length; b++) {
   pEmit6 = new ParticleEmission(new PVector(skeleton.leftShoulderX,skeleton.leftShoulderY));
   pEmit7 = new ParticleEmission(new PVector(skeleton.rightShoulderX, skeleton.rightShoulderY));
   
-    saberLight = loadImage("lightBlade22.png");
-
-  //tieexplode
-   explodeHead = new SoundFile(this, "TIEexplode.mp3");
+    saberLight = loadImage("lightsaber2.png");
+    saberDark = loadImage("lightred2.png");
+    
 //lightsaberclash
  lightClash = new SoundFile(this, "LightsaberClash.mp3");
 //lightsaberon
@@ -143,12 +139,10 @@ for(int b = 0; b < planets2.length; b++) {
  swTheme = new SoundFile(this, "SWTheme.mp3");
 //tiefire
  tieFire = new SoundFile(this, "TIEfire.mp3");
-//weeoow
- weeOow = new SoundFile(this, "WEEOOW.mp3");
+
 //xwingexplode
  xExplode = new SoundFile(this, "XWingexplode.mp3");
 //imperialmarch
- imperialM = new SoundFile(this, "imperialMarch.mp3");
 
   
   
@@ -206,13 +200,19 @@ for(int b = 0; b < planets2.length; b++) {
    
 
 
-
-
+  swTheme.play();
+  swTheme.loop();
+  swTheme.amp(0.8);
  
  }
 
 void draw() {
   background(0);
+  
+  
+  
+  
+  
   fill(255);
   textSize(20);
 text("Ignite your world here!", width/1.9, height/6);
@@ -334,38 +334,57 @@ translate(skeleton.wristRightX-10, skeleton.wristRightY-150);
   image(saberLight,0,0);
   popMatrix();
   
+  pushMatrix();
+  translate(skeleton.wristLeftX-200, skeleton.wristLeftY - 160);
+  image(saberDark, 0,0);  
+  popMatrix();
   
   textSize(20);
   text("swing your lightsaber downwards!", width/1.5, height/2);
-  if(skeleton.wristRightY > height/2){
+  if(skeleton.wristRightY > height/1.5){
   lightClash.loop(); 
     lightClash.amp(0.1);
-    
-    
-  } else { lightClash.stop(); }
+     image(ep6, 100, 10);
+      image(reyRage,100, 220);
+     image(reyep7, 100, 410);
+  image(rage,100, 610);
+  image(midFight,100,810);
+  } else { 
+    lightClash.stop(); 
+}
   
-  
-  
-  image(reyRage, 10,10);
+ 
+ 
+ fill(255);
+ textSize(20);
+
+ text("Place your left hand here..", width/6, height/4);
+ text("Place your right hand here...",width/1.3, height/4);
+ if(skeleton.wristLeftX >= width/6 && skeleton.wristLeftY <= height/4 && skeleton.wristRightX <= width/1.3 && skeleton.wristRightY <= height/4) {
+   image(hanSowat, 0, 0, width, height);
+   
+ }
+ 
+ 
+     
+ /*
    
    image(slowLight,1,1);
  
    image(impactLight,1,1);
-   image(midFight,1,1);
    
-   image(rage,12,12);
+  
  
   image(girlPlease,12,12);
    
    image(bb8,1,1);
  
-   image(hanSowat, 2,2);
-
+  
     image(obino, 2,2);
     
      image(renep8, 2,2);
      
-      image(reyep7, 2,2);
+     
      
       image(poeep7, 2,2);
       
@@ -375,7 +394,7 @@ translate(skeleton.wristRightX-10, skeleton.wristRightY-150);
   
   image(ep7st, 2,2);
   
-  image(ep6, 2,2);
+  
   
   image(reyren, 2,2);
    
@@ -395,7 +414,7 @@ translate(skeleton.wristRightX-10, skeleton.wristRightY-150);
   
   
   
-  
+  */
   
   
   
