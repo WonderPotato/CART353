@@ -26,3 +26,18 @@ then the final product delve into this experience. Fun in space with no judgemen
 
 Artist's Statement
 This should be a roughly 400 word artist's statement that briefly explains the underlying concept of your project and why it is worthy of exploration, your implementation of these ideas in code. It should communicate some of the design or research-creation insights generated as a result of the project.
+
+
+
+## How To Setup
+
+-windows computer windows 10 OS
+-kinect V2 for windows
+-KinectPV2 library 
+-Gifanimation library (change the name of folder and place into shketchbook/libraries
+-windows SDK 2.0
+-Processing v3
+-speakers for sound!!!
+
+
+start the file and press play!
