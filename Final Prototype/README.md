@@ -7,6 +7,13 @@ the 3D space becomes pew pew in space the experience!*
 ### youtube link to the recording of the installation in action!
 ### https://youtu.be/wVWUrA4OR34
 
+
+## screen grab of the installation
+
+![alt text](https://github.com/WonderPotato/CART353/blob/master/Final%20Prototype/Code/capturetake1.png "take1")
+
+
+
 ## Initial Artist Statement
 
 the project shifted from a vague and abstract experience :
