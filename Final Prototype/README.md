@@ -10,7 +10,7 @@ the 3D space becomes pew pew in space the experience!*
 
 ## screen grab of the installation
 
-![alt text](https://github.com/WonderPotato/CART353/blob/master/Final%20Prototype/Code/capturetake1.PNG "take1")
+![alt text](https://github.com/WonderPotato/CART353/blob/master/Final%20Prototype/capturetake1.PNG "take1")
 
 
 
