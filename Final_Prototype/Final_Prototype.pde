@@ -40,7 +40,17 @@ Gif rage;
 Gif girlPlease;
 Gif bb8;
 Gif hanSowat;
+Gif obino;
+Gif renep8;
+Gif reyep7;
+Gif poeep7;
+Gif swep4;
+Gif pdep7;
+Gif ep7st;
+Gif ep6;
+Gif reyren;
 
+   
 PImage saberLight;
 
 //sound files to initialize
@@ -142,15 +152,61 @@ for(int b = 0; b < planets2.length; b++) {
 
   
   
-  
+  //play gif animation
+   reyRage = new Gif(this, "reyrageep7.gif");
+   reyRage.loop(); 
+   
+   slowLight = new Gif(this, "slowLight.gif");
+   slowLight.loop();
+   
+   impactLight = new Gif(this, "impactLight.gif");
+   impactLight.loop();
+   
+   midFight = new Gif(this, "midFight.gif");
+   midFight.loop();
+   
+   rage = new Gif(this, "rage.gif");
+   rage.loop();
+   
+   girlPlease = new Gif(this, "girlPlease.gif");
+   girlPlease.loop();
+   
+   bb8 = new Gif(this, "bb8.gif");
+   bb8.loop();
+   
+   hanSowat = new Gif(this, "hanSowat.gif");
+   hanSowat.loop();
+   
+   obino = new Gif(this, "obino.gif");
+   obino.loop();
+   
+   renep8 = new Gif(this, "renep8.gif");
+   renep8.loop();
+   
+   reyep7 = new Gif(this, "reyep7.gif");
+   reyep7.loop();
+   
+   poeep7 = new Gif(this, "poeep7.gif");
+   poeep7.loop();
+   
+   swep4 = new Gif(this, "swep4.gif");
+   swep4.loop();
+   
+   pdep7 = new Gif(this, "pdep7.gif");
+   pdep7.loop();
+   
+   ep7st = new Gif(this, "ep7st.gif");
+   ep7st.loop();
+   
+   ep6 = new Gif(this, "ep6.gif");
+   ep6.loop();
+   
+   reyren = new Gif(this, "reyren.gif");
+   reyren.loop();
+   
 
 
 
-//sun on the shoulders
-//lines cut across
-
-//sound burst
-//play video in background\
 
  
  }
@@ -283,10 +339,70 @@ translate(skeleton.wristRightX-10, skeleton.wristRightY-150);
   text("swing your lightsaber downwards!", width/1.5, height/2);
   if(skeleton.wristRightY > height/2){
   lightClash.loop(); 
-    
+    lightClash.amp(0.1);
     
     
   } else { lightClash.stop(); }
+  
+  
+  
+  image(reyRage, 10,10);
+   
+   image(slowLight,1,1);
+ 
+   image(impactLight,1,1);
+   image(midFight,1,1);
+   
+   image(rage,12,12);
+ 
+  image(girlPlease,12,12);
+   
+   image(bb8,1,1);
+ 
+   image(hanSowat, 2,2);
+
+    image(obino, 2,2);
+    
+     image(renep8, 2,2);
+     
+      image(reyep7, 2,2);
+     
+      image(poeep7, 2,2);
+      
+      image(swep4, 2,2);
+     
+     image(pdep7, 2,2);
+  
+  image(ep7st, 2,2);
+  
+  image(ep6, 2,2);
+  
+  image(reyren, 2,2);
+   
+   
+   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
