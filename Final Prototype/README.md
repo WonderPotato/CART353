@@ -24,7 +24,13 @@ then the final product delve into this experience. Fun in space with no judgemen
 
 ## Final Artist Statement 2.0
 
-Artist's Statement
+Pew pew in space seems more fun than some odd abstract experience, personally some humour in creative computation can go a long way.
+
+
+
+
+
+
 This should be a roughly 400 word artist's statement that briefly explains the underlying concept of your project and why it is worthy of exploration, your implementation of these ideas in code. It should communicate some of the design or research-creation insights generated as a result of the project.
 
 
