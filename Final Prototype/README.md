@@ -4,6 +4,9 @@ the 3D space becomes pew pew in space the experience!*
 
 *(if you have a windows computer, a kinect for windows device, then you can experience it, otherwise a video demosntrates the installation!)
 
+### youtube link to the recording of the installation in action!
+### https://youtu.be/wVWUrA4OR34
+
 ## Initial Artist Statement
 
 the project shifted from a vague and abstract experience :
