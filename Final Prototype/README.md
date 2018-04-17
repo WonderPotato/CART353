@@ -47,3 +47,22 @@ This should be a roughly 400 word artist's statement that briefly explains the u
 
 
 start the file and press play!
+
+
+
+
+##Code 
+
+
+## Resources
+
+the lack of documentation for the main library for this project was severely lacking, this required lots of time researching various projects and websites using similar libraries and creating their own examples and documentation.
+
+thankfully there is always help.
+
+Kodrin from class was very helpful his code got to work super well for the skeleton display so that helped me clean up my code and multiple tabs of drawing within the main code file. 
+
+I used code from the fireworks pde  from the coding train.
+
+https://github.com/Kodrin/cart353/blob/master/FinalProject_IRO/FinalProject_IRO.pde
+https://github.com/CodingTrain/website/blob/master/CodingChallenges/CC_27_FireWorks_3D/CC_27_FireWorks_3D.pde
