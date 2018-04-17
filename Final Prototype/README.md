@@ -4,7 +4,7 @@ the 3D space becomes pew pew in space the experience!*
 
 *(if you have a windows computer, a kinect for windows device, then you can experience it, otherwise a video demosntrates the installation!)
 
-##Initial Artist Statement
+## Initial Artist Statement
 
 the project shifted from a vague and abstract experience :
 
@@ -12,4 +12,4 @@ Create an Action/Reaction environment for the individual to immerse themselves i
 
 then the final product delve into this experience. Fun in space with no judgement......
 
-##Final Artist Statement 2.0
+## Final Artist Statement 2.0
