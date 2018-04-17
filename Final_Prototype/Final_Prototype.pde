@@ -1,13 +1,13 @@
+/*
 
+Michelle Samson
+27037600
+CART 353 - WINTER 2018
+PROFESSOR RILLA KHALED
+FINAL PROTOTYPE
+A 3D IN SPACE EXPLORATION OF THE SELF 
 
-
-
-
-
-
-
-
-
+*/
 /*
 Thomas Sanchez Lengeling.
  http://codigogenerativo.com/
