@@ -13,3 +13,6 @@ Create an Action/Reaction environment for the individual to immerse themselves i
 then the final product delve into this experience. Fun in space with no judgement......
 
 ## Final Artist Statement 2.0
+
+Artist's Statement
+This should be a roughly 400 word artist's statement that briefly explains the underlying concept of your project and why it is worthy of exploration, your implementation of these ideas in code. It should communicate some of the design or research-creation insights generated as a result of the project.
