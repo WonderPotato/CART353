@@ -38,11 +38,17 @@ I feel this project reached a certain goal in my vision for this creative comput
 ## How To Setup
 
 -windows computer windows 10 OS
+
 -kinect V2 for windows
+
 -KinectPV2 library 
+
 -Gifanimation library (change the name of folder and place into shketchbook/libraries
+
 -windows SDK 2.0
+
 -Processing v3
+
 -speakers for sound!!!
 
 
