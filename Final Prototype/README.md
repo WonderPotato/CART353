@@ -25,14 +25,14 @@ then the final product delve into this experience. Fun in space with no judgemen
 ## Final Artist Statement 2.0
 
 Pew pew in space seems more fun than some odd abstract experience, personally some humour in creative computation can go a long way.
+Initially I had this vision of a calm and deep meaningful installation that might bring out a deeper sense of awareness in one’s self. By bringing the abstract into the coding using the kinect I was able to experiment with different results. Although what I was able to accomplish with the first version didn’t reach the mark and when turning to the Kinect v2 I got more out of the device and got some interesting results.   This allowed for a deeper dive into the concept and what I wanted to explore with creative computing. To have fun with technology and to try and not take ourselves seriously for once. 
 
+I wanted to bring the fantasy world that we immerse ourselves in with movies and games and to bring it to the Kinect platform to have a virtual grasp on that world.  my design and code relate to the colourful and nostalgic sci fi genres of Star Wars and space exploration. Our solar system is just the start of the curiosity in our galaxy and universe. So why not bring some fun with the curiosity. I brought in the force attracted objects around their suns and placed those on the users skeleton display’s shoulder.  The code used displays these suns and their planets while having their orbit move around the person. Surrounding them with color and movement. I also added many imagery of Star Wars whenever the user moves or should I say swings their lightsaber wielding hands downwards in a force stricken slash. By doing so gifs appear depending which side they choose. For other visual reactions I placed imagery that is activated by the users arm position.   
 
+The art of interacting with technology for one’s entertainment can be varied, and with creative computing one can create possibilities that can allow for an enjoyable and colourful experience. This project was able to bring a nostalgic and fantasy driven world into a virtual experience for the user to engage with freely and without judgement. 
+So really I created a calm environment for someone to have fun in and relieve some sci-fi moments. 
 
-
-
-
-This should be a roughly 400 word artist's statement that briefly explains the underlying concept of your project and why it is worthy of exploration, your implementation of these ideas in code. It should communicate some of the design or research-creation insights generated as a result of the project.
-
+I feel this project reached a certain goal in my vision for this creative computation. I learned the difficulties of working with a hardware that it’s designers have stopped innovating on for the general public and that previous version of processing had some better luck.  For a graphics based programming language, processing has only a limited amount of possibility with the Kinect. For what I learned to make with the Kinect I was able to create an exciting and fun experience for which I enjoyed creating and had a good many laughs interacting with the final prototype. I hope others will too. 
 
 
 ## How To Setup
@@ -48,10 +48,6 @@ This should be a roughly 400 word artist's statement that briefly explains the u
 
 start the file and press play!
 
-
-
-
-## Code 
 
 
 ## Resources
